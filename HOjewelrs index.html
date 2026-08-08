@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>H.O. Jewellers</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f1e8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .container {
+            margin: 50px auto;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        button {
+            display: block;
+            width: 80%;
+            margin: 20px auto;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #c59b3d;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #a67c24;
+        }
+
+        .box {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: #fff8df;
+            border: 2px solid #c59b3d;
+            border-radius: 10px;
+        }
+
+        .rate {
+            font-size: 20px;
+            margin: 12px;
+        }
+
+        #orderMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>H.O. JEWELLERS</h1>
+        <p>Jewellery • Gold • Silver</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Current Rate Button -->
+        <button onclick="showRates()">
+            Current Rate
+        </button>
+
+        <!-- Rate Box -->
+        <div id="rateBox" class="box">
+
+            <h2>Today's Rates</h2>
+
+            <div class="rate">
+                🟡 Gold 22K: ₹XX,XXX / 10g
+            </div>
+
+            <div class="rate">
+                🟡 Gold 18K: ₹XX,XXX / 10g
+            </div>
+
+            <div class="rate">
+                ⚪ Silver: ₹XX,XXX / kg
+            </div>
+
+        </div>
+
+
+        <!-- Products Button -->
+        <a href="products.html">
+            <button>
+                Products
+            </button>
+        </a>
+
+
+        <!-- Pre Orders Button -->
+        <button onclick="showOrder()">
+            Pre Orders
+        </button>
+
+        <!-- Pre Order Message -->
+        <div id="orderMessage">
+
+            <strong>Contact us at:</strong><br>
+
+            +91 9798762719
+
+            <br><br>
+
+            <strong>Mail us at:</strong><br>
+
+            nishantburman61@gmail.com
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function showRates() {
+
+            const box = document.getElementById("rateBox");
+
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+            }
+
+        }
+
+
+        function showOrder() {
+
+            const message = document.getElementById("orderMessage");
+
+            if (message.style.display === "block") {
+                message.style.display = "none";
+            } else {
+                message.style.display = "block";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
