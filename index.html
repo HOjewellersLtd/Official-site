@@ -78,6 +78,25 @@
         a {
             text-decoration: none;
         }
+
+        /* New styles for the paragraph and footer */
+        .about {
+            max-width: 700px;
+            margin: 20px auto;
+            background: transparent;
+            padding: 0 20px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 16px 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -145,6 +164,23 @@
 
     </div>
 
+    <!-- New paragraph / about section below container -->
+    <div class="about">
+        <p>
+            Welcome to H.O. Jewellers — where craftsmanship meets elegance.<br>
+            We offer a hand-picked collection of gold and silver jewellery,<br>
+            custom orders and trusted valuation services.<br> 
+            Visit our store at Main Road, near Bank Of Baroda, Gola,<br> 
+            Jharkhand 829110 <br>
+            
+            contact us for personalized assistance.
+        </p>
+    </div>
+
+    <!-- Footer with copyright -->
+    <footer>
+        <p>&copy; <span id="year"></span> H.O. Jewellers. All rights reserved.</p>
+    </footer>
 
     <script>
 
@@ -172,6 +208,9 @@
             }
 
         }
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
 
     </script>
 
