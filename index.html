@@ -79,40 +79,52 @@
             text-decoration: none;
         }
 
-        /* New styles for the paragraph and footer */
-        .about {
-            max-width: 700px;
-            margin: 20px auto;
-            background: transparent;
-            padding: 0 20px;
+        /* Offline Store Section */
+        .store-info {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            font-size: 18px;
+            line-height: 1.7;
             color: #333;
-            font-size: 16px;
-            line-height: 1.6;
         }
 
+        .store-info strong {
+            font-size: 20px;
+        }
+
+        /* Footer */
         footer {
             background-color: #222;
             color: white;
-            padding: 16px 10px;
+            padding: 20px;
             margin-top: 30px;
-            text-align: center;
+            font-size: 15px;
         }
     </style>
 </head>
 
+
 <body>
 
+    <!-- Header -->
     <header>
+
         <h1>H.O. JEWELLERS</h1>
+
         <p>Jewellery • Gold • Silver</p>
+
     </header>
 
+
+    <!-- Main Container -->
     <div class="container">
 
         <!-- Current Rate Button -->
         <button onclick="showRates()">
             Current Rate
         </button>
+
 
         <!-- Rate Box -->
         <div id="rateBox" class="box">
@@ -136,9 +148,11 @@
 
         <!-- Products Button -->
         <a href="products.html">
+
             <button>
                 Products
             </button>
+
         </a>
 
 
@@ -147,16 +161,19 @@
             Pre Orders
         </button>
 
+
         <!-- Pre Order Message -->
         <div id="orderMessage">
 
-            <strong>Contact us at:</strong><br>
+            <strong>Contact us at:</strong>
+            <br>
 
             +91 9798762719
 
             <br><br>
 
-            <strong>Mail us at:</strong><br>
+            <strong>Mail us at:</strong>
+            <br>
 
             nishantburman61@gmail.com
 
@@ -164,24 +181,31 @@
 
     </div>
 
-    <!-- New paragraph / about section below container -->
-    <div class="about">
-        <p>
-            Welcome to H.O. Jewellers — where craftsmanship meets elegance.<br>
-            We offer a hand-picked collection of gold and silver jewellery,<br>
-            custom orders and trusted valuation services.<br> 
-            Visit our store at Main Road, near Bank Of Baroda, Gola,<br> 
-            Jharkhand 829110 <br>
-            
-            contact us for personalized assistance.
-        </p>
+
+    <!-- Offline Store Information -->
+    <div class="store-info">
+
+        <strong>For more clarity, visit our offline store at:</strong>
+
+        <br><br>
+
+        Main Road, near Bank Of Baroda, Gola
+        <br>
+
+        Jharkhand 829110
+
     </div>
 
-    <!-- Footer with copyright -->
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; <span id="year"></span> H.O. Jewellers. All rights reserved.</p>
+
+        &copy; 2026 H.O. Jewellers, All Rights Reserved.
+
     </footer>
 
+
+    <!-- JavaScript -->
     <script>
 
         function showRates() {
@@ -189,9 +213,13 @@
             const box = document.getElementById("rateBox");
 
             if (box.style.display === "block") {
+
                 box.style.display = "none";
+
             } else {
+
                 box.style.display = "block";
+
             }
 
         }
@@ -202,15 +230,16 @@
             const message = document.getElementById("orderMessage");
 
             if (message.style.display === "block") {
+
                 message.style.display = "none";
+
             } else {
+
                 message.style.display = "block";
+
             }
 
         }
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
 
     </script>
 
