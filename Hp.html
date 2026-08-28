@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="MgciKVURAI2xJj9HDIYwL5BOIHuB3nq0EiSNCDJW-vA" />
+
+    <title>H.O. Jewellers</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f1e8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .container {
+            margin: 50px auto;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        button {
+            display: block;
+            width: 80%;
+            margin: 20px auto;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #c59b3d;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #a67c24;
+        }
+
+        .box {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: #fff8df;
+            border: 2px solid #c59b3d;
+            border-radius: 10px;
+        }
+
+        .rate {
+            font-size: 20px;
+            margin: 12px;
+        }
+
+        #orderMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Offline Store Section */
+        .store-info {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .store-info strong {
+            font-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <h1>H.O. JEWELLERS</h1>
+
+        <p>Jewellery • Gold • Silver</p>
+
+    </header>
+
+
+    <!-- Main Container -->
+    <div class="container">
+ <!-- Rate Button Button -->
+        <a href="https://hojewellersltd.github.io/Rates/">
+
+            <button>
+                Current Rates
+            </button>
+
+        </a>
+
+        <!-- Products Button -->
+        <a href="https://hojewellersltd.github.io/Products/">
+
+            <button>
+                Products
+            </button>
+
+        </a>
+
+
+        <!-- Pre Orders Button -->
+        <button onclick="showOrder()">
+            Pre Orders
+        </button>
+
+
+        <!-- Pre Order Message -->
+        <div id="orderMessage">
+
+            <strong>Contact us at:</strong>
+            <br>
+
+            +91 9798762719
+
+            <br><br>
+
+            <strong>Mail us at:</strong>
+            <br>
+
+            nishantburman61@gmail.com <br>
+            <strong>WhatsApp Chat:</strong>
+<a href=" https://wa.me/message/TTTRR6SQLQDQF1" target="_blank">
+    Chat on WhatsApp
+</a>
+
+
+        </div>
+        <!-- Contact Info Button -->
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScWa1f2xkvY7ZIMOlZ3C9_flqlxsmN_KiRiZjDSsFTtVFSO0g/viewform?usp=publish-editor" target="_blank">
+
+    <button>
+        Contact Info
+    </button>
+
+</a>
+
+    </div>
+
+
+    <!-- Offline Store Information -->
+    <div class="store-info">
+
+        <strong>For more clearity, visit our offline store at:</strong>
+
+        <br><br>
+
+        Main Road, Near Bank Of Baroda, Gola, Ramgarh
+        <br>    
+        Jharkhand 829110
+        <p>
+  Created by EPICPAGES, <br>
+  <a href="https://depthprogrammerdesw.github.io/Epicpages-site/" target="_blank">Create website</a>.
+</p>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        &copy; 2026 H.O. Jewellers, All Rights Reserved.
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function showRates() {
+
+            const box = document.getElementById("rateBox");
+
+            if (box.style.display === "block") {
+
+                box.style.display = "none";
+
+            } else {
+
+                box.style.display = "block";
+
+            }
+
+        }
+
+
+        function showOrder() {
+
+            const message = document.getElementById("orderMessage");
+
+            if (message.style.display === "block") {
+
+                message.style.display = "none";
+
+            } else {
+
+                message.style.display = "block";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
