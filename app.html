@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H.O. Jewellers | Download Android App</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 190, 70, 0.16), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255, 120, 30, 0.12), transparent 30%),
+        linear-gradient(135deg, #090909, #21180d, #080808);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    body::before {
+      background: #d99a24;
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      background: #ffb52e;
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 560px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* LOGO */
+    .app-logo {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 25px;
+      border-radius: 20px;
+      filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.45));
+    }
+
+    .brand {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(30px, 7vw, 52px);
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #f8d27a;
+      text-shadow: 0 0 25px rgba(248, 210, 122, 0.25);
+      margin-bottom: 14px;
+    }
+
+    .line {
+      width: 75px;
+      height: 2px;
+      margin: 0 auto 30px;
+      background: linear-gradient(90deg, transparent, #e7b94e, transparent);
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: #e7d6b1;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+    }
+
+    /* BUTTONS */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 330px;
+      padding: 16px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #251603;
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ffe49a, #d99a24);
+      box-shadow: 0 8px 30px rgba(217, 154, 36, 0.25);
+      transition: 0.25s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(217, 154, 36, 0.4);
+    }
+
+    .download-btn:active {
+      transform: scale(0.97);
+    }
+
+    .download-icon {
+      font-size: 22px;
+    }
+
+    .explore {
+      display: inline-block;
+      margin-top: 28px;
+      color: #f8d27a;
+      font-size: 15px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(248, 210, 122, 0.5);
+      padding-bottom: 4px;
+      transition: 0.25s ease;
+    }
+
+    .explore:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* QR CODE SECTION */
+    .qr-section {
+      width: 70vw;
+      max-width: 330px;
+      margin: 45px auto 0;
+    }
+
+    .qr-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 2px solid #e7b94e;
+      border-radius: 18px;
+      box-shadow:
+        0 0 25px rgba(231, 185, 78, 0.15),
+        0 12px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .qr-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .scan-text {
+      margin-top: 18px;
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #f8d27a;
+    }
+
+    .footer {
+      margin-top: 55px;
+      font-size: 12px;
+      color: #8e8068;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 25px 15px;
+      }
+
+      .app-logo {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 22px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+
+      .download-btn {
+        max-width: 100%;
+      }
+
+      .qr-section {
+        width: 70vw;
+      }
+
+      .scan-text {
+        font-size: 16px;
+      }
+
+      .footer {
+        margin-top: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- H.O. JEWELLERS LOGO -->
+    <img
+      class="app-logo"
+      src="Copilot_Llogo.png"
+      alt="H.O. Jewellers Logo"
+    >
+
+    <h1 class="brand">H.O. Jewellers</h1>
+
+    <div class="line"></div>
+
+    <p class="subtitle">Download Android App</p>
+
+    <!-- DOWNLOAD BUTTON -->
+    <!-- Replace with your actual APK filename -->
+    <a
+      class="download-btn"
+      href="HO-Jewellers.apk"
+      download
+    >
+      <span class="download-icon">⇩</span>
+      <span>Download Now</span>
+    </a>
+
+    <!-- EXPLORE WEBSITE -->
+    <!-- Replace with your actual website URL -->
+    <a
+      class="explore"
+      href="https://your-website-link.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Explore on web →
+    </a>
+
+    <!-- QR CODE CONTAINER -->
+    <section class="qr-section">
+
+      <div class="qr-container">
+        <!-- Replace qr-code.png with your actual QR image -->
+        <img
+          src="qr-code.png"
+          alt="Scan to download H.O. Jewellers Android App"
+        >
+      </div>
+
+      <p class="scan-text">Scan &amp; Download</p>
+
+    </section>
+
+    <div class="footer">
+      © 2026 H.O. Jewellers
+    </div>
+
+  </main>
+
+</body>
+</html>
