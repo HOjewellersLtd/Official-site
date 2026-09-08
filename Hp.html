@@ -8,24 +8,41 @@
 
     <title>H.O. Jewellers</title>
 
+    <!-- Font Awesome: official WhatsApp brand icon + phone icon -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f1e8;
             text-align: center;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         header {
             background-color: #222;
             color: white;
-            padding: 30px;
+            padding: 30px 15px;
         }
 
         h1 {
             margin: 0;
             font-size: 40px;
+        }
+
+        header p {
+            margin-bottom: 0;
         }
 
         .container {
@@ -34,7 +51,7 @@
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         button {
@@ -48,10 +65,16 @@
             cursor: pointer;
             background-color: #c59b3d;
             color: white;
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
         button:hover {
             background-color: #a67c24;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: scale(0.97);
         }
 
         .box {
@@ -80,6 +103,15 @@
             text-decoration: none;
         }
 
+        .order-link {
+            color: #a67c24;
+            font-weight: bold;
+        }
+
+        .order-link:hover {
+            text-decoration: underline;
+        }
+
         /* Offline Store Section */
         .store-info {
             max-width: 600px;
@@ -94,6 +126,11 @@
             font-size: 20px;
         }
 
+        .store-info a {
+            color: #a67c24;
+            font-weight: bold;
+        }
+
         /* Footer */
         footer {
             background-color: #222;
@@ -101,6 +138,123 @@
             padding: 20px;
             margin-top: 30px;
             font-size: 15px;
+        }
+
+        /* =========================================
+           FLOATING CONTACT BUTTONS
+           ========================================= */
+
+        .floating-actions {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 14px;
+        }
+
+        .floating-btn {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 27px;
+            text-decoration: none;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-4px) scale(1.06);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .floating-btn:active {
+            transform: scale(0.92);
+        }
+
+        /* Official WhatsApp brand colour */
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        /* Phone / Dialer button */
+        .call-btn {
+            background-color: #c59b3d;
+        }
+
+        .floating-btn i {
+            line-height: 1;
+        }
+
+        /* Small label beside each button */
+        .floating-btn::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 72px;
+            background: #222;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+            padding: 8px 12px;
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(8px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .floating-btn:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 25px 12px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                margin: 30px 15px;
+                padding: 20px 15px;
+            }
+
+            button {
+                width: 90%;
+            }
+
+            .store-info {
+                padding: 20px 15px;
+                font-size: 16px;
+            }
+
+            .floating-actions {
+                right: 16px;
+                bottom: 16px;
+                gap: 12px;
+            }
+
+            .floating-btn {
+                width: 54px;
+                height: 54px;
+                font-size: 25px;
+            }
+
+            .floating-btn::after {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -120,7 +274,8 @@
 
     <!-- Main Container -->
     <div class="container">
- <!-- Rate Button Button -->
+
+        <!-- Current Rates Button -->
         <a href="https://hojewellersltd.github.io/Rates/">
 
             <button>
@@ -128,6 +283,7 @@
             </button>
 
         </a>
+
 
         <!-- Products Button -->
         <a href="https://hojewellersltd.github.io/Products/">
@@ -158,22 +314,33 @@
             <strong>Mail us at:</strong>
             <br>
 
-            nishantburman61@gmail.com <br>
-            <strong>WhatsApp Chat:</strong>
-<a href=" https://wa.me/message/TTTRR6SQLQDQF1" target="_blank">
-    Chat on WhatsApp
-</a>
+            nishantburman61@gmail.com
 
+            <br><br>
+
+            <strong>WhatsApp Chat:</strong>
+            <br>
+
+            <a class="order-link"
+                href="https://wa.me/message/TTTRR6SQLQDQF1"
+                target="_blank"
+                rel="noopener">
+                Chat on WhatsApp
+            </a>
 
         </div>
+
+
         <!-- Contact Info Button -->
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScWa1f2xkvY7ZIMOlZ3C9_flqlxsmN_KiRiZjDSsFTtVFSO0g/viewform?usp=publish-editor" target="_blank">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScWa1f2xkvY7ZIMOlZ3C9_flqlxsmN_KiRiZjDSsFTtVFSO0g/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener">
 
-    <button>
-        Contact Info
-    </button>
+            <button>
+                Contact Info
+            </button>
 
-</a>
+        </a>
 
     </div>
 
@@ -186,12 +353,18 @@
         <br><br>
 
         Main Road, Near Bank Of Baroda, Gola, Ramgarh
-        <br>    
+        <br>
         Jharkhand 829110
+
         <p>
-  Created by EPICPAGES, <br>
-  <a href="https://depthprogrammerdesw.github.io/Epicpages-site/" target="_blank">Create website</a>.
-</p>
+            Created by EPICPAGES,
+            <br>
+            <a href="https://depthprogrammerdesw.github.io/Epicpages-site/"
+                target="_blank"
+                rel="noopener">
+                Create website
+            </a>.
+        </p>
 
     </div>
 
@@ -202,6 +375,38 @@
         &copy; 2026 H.O. Jewellers, All Rights Reserved.
 
     </footer>
+
+
+    <!-- =========================================
+         FLOATING WHATSAPP + CALL BUTTONS
+         ========================================= -->
+
+    <div class="floating-actions">
+
+        <!-- WhatsApp: opens your existing WhatsApp chat -->
+        <a class="floating-btn whatsapp-btn"
+            href="https://wa.me/message/TTTRR6SQLQDQF1"
+            target="_blank"
+            rel="noopener"
+            aria-label="Chat on WhatsApp"
+            data-label="Chat on WhatsApp">
+
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+
+        </a>
+
+
+        <!-- Contact: opens Android phone dialer -->
+        <a class="floating-btn call-btn"
+            href="tel:+919798762719"
+            aria-label="Call H.O. Jewellers"
+            data-label="Call us">
+
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+
+        </a>
+
+    </div>
 
 
     <!-- JavaScript -->
