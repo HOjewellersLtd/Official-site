@@ -3,22 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="MgciKVURAI2xJj9HDIYwL5BOIHuB3nq0EiSNCDJW-vA" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="google-site-verification"
+        content="MgciKVURAI2xJj9HDIYwL5BOIHuB3nq0EiSNCDJW-vA" />
 
     <title>H.O. Jewellers</title>
 
-    <!-- Font Awesome: official WhatsApp brand icon + phone icon -->
+    <!-- Official WhatsApp + Phone icons -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+        /* =========================================
+           RESET + MOBILE SAFE AREA
+           ========================================= */
+
         * {
             box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -27,45 +35,71 @@
             text-align: center;
             margin: 0;
             padding: 0;
+
+            /* Prevent horizontal scrolling */
+            overflow-x: hidden;
+
+            /* Extra space for mobile system bars */
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+
             color: #333;
         }
+
+        /* =========================================
+           HEADER
+           ========================================= */
 
         header {
             background-color: #222;
             color: white;
-            padding: 30px 15px;
+            padding: 42px 15px 38px;
         }
 
         h1 {
             margin: 0;
             font-size: 40px;
+            line-height: 1.2;
         }
 
         header p {
-            margin-bottom: 0;
+            margin: 28px 0 0;
+            font-size: 24px;
         }
 
+        /* =========================================
+           MAIN CONTAINER
+           ========================================= */
+
         .container {
-            margin: 50px auto;
-            max-width: 600px;
+            margin: 50px auto 35px;
+            max-width: 660px;
+            width: calc(100% - 30px);
+
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 38px 30px;
+
+            border-radius: 26px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
         }
 
         button {
             display: block;
-            width: 80%;
+            width: 100%;
             margin: 20px auto;
-            padding: 15px;
-            font-size: 18px;
+            padding: 18px 15px;
+
+            font-size: 20px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
+
             background-color: #c59b3d;
             color: white;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+
+            transition:
+                background-color 0.2s ease,
+                transform 0.2s ease;
         }
 
         button:hover {
@@ -77,30 +111,24 @@
             transform: scale(0.97);
         }
 
-        .box {
-            display: none;
-            margin: 20px auto;
-            padding: 20px;
-            width: 80%;
-            background-color: #fff8df;
-            border: 2px solid #c59b3d;
-            border-radius: 10px;
-        }
-
-        .rate {
-            font-size: 20px;
-            margin: 12px;
-        }
+        /* =========================================
+           PRE ORDER MESSAGE
+           ========================================= */
 
         #orderMessage {
             display: none;
-            margin-top: 20px;
+
+            margin: 20px auto;
+            padding: 20px;
+
             font-size: 18px;
             line-height: 2;
-        }
 
-        a {
-            text-decoration: none;
+            background-color: #fff8df;
+            border: 2px solid #c59b3d;
+            border-radius: 12px;
+
+            overflow-wrap: anywhere;
         }
 
         .order-link {
@@ -112,18 +140,28 @@
             text-decoration: underline;
         }
 
-        /* Offline Store Section */
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================================
+           OFFLINE STORE
+           ========================================= */
+
         .store-info {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 25px;
-            font-size: 18px;
-            line-height: 1.7;
+            max-width: 660px;
+            width: calc(100% - 30px);
+
+            margin: 35px auto 45px;
+            padding: 25px 15px;
+
+            font-size: 20px;
+            line-height: 1.8;
             color: #333;
         }
 
         .store-info strong {
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .store-info a {
@@ -131,11 +169,16 @@
             font-weight: bold;
         }
 
-        /* Footer */
+        /* =========================================
+           FOOTER
+           ========================================= */
+
         footer {
             background-color: #222;
             color: white;
-            padding: 20px;
+
+            padding: 28px 15px;
+
             margin-top: 30px;
             font-size: 15px;
         }
@@ -146,28 +189,45 @@
 
         .floating-actions {
             position: fixed;
-            right: 22px;
-            bottom: 22px;
+
+            /* Keeps buttons above mobile bottom navigation */
+            right: 20px;
+            bottom: calc(24px + env(safe-area-inset-bottom));
+
             z-index: 9999;
+
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             gap: 14px;
+
+            pointer-events: none;
         }
 
         .floating-btn {
             width: 58px;
             height: 58px;
+
             border-radius: 50%;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             color: white;
             font-size: 27px;
+
             text-decoration: none;
+
             box-shadow: 0 5px 18px rgba(0, 0, 0, 0.28);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
             -webkit-tap-highlight-color: transparent;
+
+            pointer-events: auto;
         }
 
         .floating-btn:hover {
@@ -179,12 +239,12 @@
             transform: scale(0.92);
         }
 
-        /* Official WhatsApp brand colour */
+        /* Official WhatsApp green */
         .whatsapp-btn {
             background-color: #25D366;
         }
 
-        /* Phone / Dialer button */
+        /* Phone / Dialer */
         .call-btn {
             background-color: #c59b3d;
         }
@@ -193,22 +253,31 @@
             line-height: 1;
         }
 
-        /* Small label beside each button */
+        /* Floating labels */
         .floating-btn::after {
             content: attr(data-label);
+
             position: absolute;
             right: 72px;
+
             background: #222;
             color: white;
+
             font-size: 13px;
             font-weight: bold;
             white-space: nowrap;
+
             padding: 8px 12px;
             border-radius: 6px;
+
             opacity: 0;
             pointer-events: none;
+
             transform: translateX(8px);
-            transition: opacity 0.2s ease, transform 0.2s ease;
+
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
         }
 
         .floating-btn:hover::after {
@@ -216,33 +285,58 @@
             transform: translateX(0);
         }
 
+        /* =========================================
+           MOBILE OPTIMIZATION
+           ========================================= */
+
         @media (max-width: 600px) {
 
             header {
-                padding: 25px 12px;
+                padding: 32px 15px 30px;
             }
 
             h1 {
-                font-size: 30px;
+                font-size: clamp(28px, 8vw, 40px);
+            }
+
+            header p {
+                font-size: clamp(18px, 5vw, 24px);
+                margin-top: 20px;
             }
 
             .container {
-                margin: 30px 15px;
-                padding: 20px 15px;
+                margin: 35px auto 30px;
+                padding: 30px 20px;
+                border-radius: 24px;
             }
 
             button {
-                width: 90%;
+                width: 100%;
+                margin: 18px auto;
+                padding: 17px 12px;
+                font-size: 20px;
+            }
+
+            #orderMessage {
+                font-size: 17px;
+                padding: 18px 12px;
             }
 
             .store-info {
-                padding: 20px 15px;
-                font-size: 16px;
+                margin: 30px auto 40px;
+                padding: 25px 12px;
+                font-size: 18px;
+                line-height: 1.8;
             }
 
+            .store-info strong {
+                font-size: 22px;
+            }
+
+            /* Mobile floating buttons */
             .floating-actions {
                 right: 16px;
-                bottom: 16px;
+                bottom: calc(24px + env(safe-area-inset-bottom));
                 gap: 12px;
             }
 
@@ -254,6 +348,31 @@
 
             .floating-btn::after {
                 display: none;
+            }
+
+            footer {
+                padding: 25px 15px;
+            }
+        }
+
+        /* Extra-small phones */
+        @media (max-width: 380px) {
+
+            .container {
+                width: calc(100% - 20px);
+                padding: 25px 15px;
+            }
+
+            button {
+                font-size: 18px;
+            }
+
+            .store-info {
+                font-size: 17px;
+            }
+
+            .floating-actions {
+                right: 12px;
             }
         }
     </style>
@@ -275,7 +394,7 @@
     <!-- Main Container -->
     <div class="container">
 
-        <!-- Current Rates Button -->
+        <!-- Current Rates -->
         <a href="https://hojewellersltd.github.io/Rates/">
 
             <button>
@@ -285,7 +404,7 @@
         </a>
 
 
-        <!-- Products Button -->
+        <!-- Products -->
         <a href="https://hojewellersltd.github.io/Products/">
 
             <button>
@@ -295,7 +414,7 @@
         </a>
 
 
-        <!-- Pre Orders Button -->
+        <!-- Pre Orders -->
         <button onclick="showOrder()">
             Pre Orders
         </button>
@@ -325,13 +444,15 @@
                 href="https://wa.me/message/TTTRR6SQLQDQF1"
                 target="_blank"
                 rel="noopener">
+
                 Chat on WhatsApp
+
             </a>
 
         </div>
 
 
-        <!-- Contact Info Button -->
+        <!-- Contact Info -->
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScWa1f2xkvY7ZIMOlZ3C9_flqlxsmN_KiRiZjDSsFTtVFSO0g/viewform?usp=publish-editor"
             target="_blank"
             rel="noopener">
@@ -348,16 +469,29 @@
     <!-- Offline Store Information -->
     <div class="store-info">
 
-        <strong>For more clearity, visit our offline store at:</strong>
+        <strong>For more clarity, visit our offline store at:</strong>
 
         <br><br>
 
         Main Road, Near Bank Of Baroda, Gola, Ramgarh
+
         <br>
+
         Jharkhand 829110
 
-       
+        <p>
+            Created by EPICPAGES,
+            <br>
+
+            <a href="https://depthprogrammerdesw.github.io/Epicpages-site/"
+                target="_blank"
+                rel="noopener">
+
+                Create website
+
+            </a>.
         </p>
+
     </div>
 
 
@@ -375,7 +509,7 @@
 
     <div class="floating-actions">
 
-        <!-- WhatsApp: opens your existing WhatsApp chat -->
+        <!-- WhatsApp -->
         <a class="floating-btn whatsapp-btn"
             href="https://wa.me/message/TTTRR6SQLQDQF1"
             target="_blank"
@@ -383,18 +517,20 @@
             aria-label="Chat on WhatsApp"
             data-label="Chat on WhatsApp">
 
-            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <i class="fa-brands fa-whatsapp"
+                aria-hidden="true"></i>
 
         </a>
 
 
-        <!-- Contact: opens Android phone dialer -->
+        <!-- Android Dialer -->
         <a class="floating-btn call-btn"
             href="tel:+919798762719"
             aria-label="Call H.O. Jewellers"
             data-label="Call us">
 
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <i class="fa-solid fa-phone"
+                aria-hidden="true"></i>
 
         </a>
 
@@ -403,23 +539,6 @@
 
     <!-- JavaScript -->
     <script>
-
-        function showRates() {
-
-            const box = document.getElementById("rateBox");
-
-            if (box.style.display === "block") {
-
-                box.style.display = "none";
-
-            } else {
-
-                box.style.display = "block";
-
-            }
-
-        }
-
 
         function showOrder() {
 
