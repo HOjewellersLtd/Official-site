@@ -55,14 +55,14 @@
         }
 
         /* =========================================
-           MOBILE-ONLY INTRO VIDEO
+           INTRO VIDEO
            ========================================= */
 
         .mobile-intro {
             position: fixed;
             z-index: 10000;
             inset: 0;
-            display: none;
+            display: grid;
             overflow: hidden;
             place-items: center;
             background: var(--ink);
@@ -93,6 +93,22 @@
             opacity: 1;
             visibility: visible;
             transition: opacity 0.65s ease, visibility 0.65s ease;
+        }
+
+        body.intro-active .site-shell {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body.intro-complete .mobile-intro {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body.intro-complete .site-shell {
+            animation: interface-in 0.7s ease both;
         }
 
         /* =========================================
@@ -401,26 +417,6 @@
            ========================================= */
 
         @media (max-width: 767px) {
-            .mobile-intro {
-                display: grid;
-            }
-
-            body.intro-active .site-shell {
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-            }
-
-            body.intro-complete .mobile-intro {
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-            }
-
-            body.intro-complete .site-shell {
-                animation: interface-in 0.7s ease both;
-            }
-
             header {
                 padding: 34px 18px 39px;
                 text-align: center;
@@ -549,7 +545,7 @@
     <!-- Mobile-only intro video. Place your video at intro-video.mp4 beside this file. -->
     <div class="mobile-intro" id="mobileIntro" aria-hidden="true">
         <video class="intro-video" id="introVideo" muted playsinline preload="none">
-            <source data-src="hointro.mp4" type="video/mp4">
+            <source data-src="intro-video.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -608,7 +604,7 @@
                 </div>
 
                 <!-- About Us -->
-                <a href=""
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScWa1f2xkvY7ZIMOlZ3C9_flqlxsmN_KiRiZjDSsFTtVFSO0g/viewform?usp=publish-editor"
                     target="_blank"
                     rel="noopener">
                     <button>
@@ -681,18 +677,11 @@
             const mobileIntro = document.getElementById("mobileIntro");
             const introVideo = document.getElementById("introVideo");
             const source = introVideo.querySelector("source");
-            const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
             function openMainInterface() {
                 document.body.classList.remove("intro-active");
                 document.body.classList.add("intro-complete");
                 mobileIntro.setAttribute("aria-hidden", "true");
-            }
-
-            // Desktop skips the intro entirely and never assigns the video source.
-            if (!isMobile) {
-                openMainInterface();
-                return;
             }
 
             source.src = source.dataset.src;
